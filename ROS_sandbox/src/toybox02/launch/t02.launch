@@ -1,0 +1,20 @@
+<launch>
+  <group ns="name_toybox02">
+    <!--node pkg="toy_ary_sub" name="node_name_sub" type="../../devel/bin/toy_ary_sub"/-->
+    <!--node pkg="toy_ary_sub" name="node_name_sub" type="../../devel/bin/toy_ary_sub"/-->
+    <!--node pkg="toybox02" name="p1" type="../../devel/bin/toy_ary_pub"/-->
+    <!--node pkg="toybox02" name="p2" type="../../devel/bin/toy_ary_sub"/-->
+    <!--node pkg="toybox02" name="p1" type="toy_ary_pub"/-->
+    <!--node pkg="toybox02" name="p2" type="toy_ary_sub"/-->
+    <!--node pkg="toy_ary_pub" name="node_name_pub" type="toy_ary_pub"/-->
+    <!--node pkg="toy_ary_sub" name="node_name_sub" type="toy_ary_sub"/-->
+    <!--node pkg="toybox02" name="name_toy_ary_pub" type="../../devel/bin/toy_ary_pub.exe"/-->
+    <!--node pkg="toybox02" name="name_toy_ary_sub" type="../../devel/bin/toy_ary_sub.exe"/-->
+    <!--node pkg="toybox02" name="name_toy_ary_pub" type="../../devel/bin/toy_ary_pub"/-->
+    <!--node pkg="toybox02" name="name_toy_ary_sub" type="../../devel/bin/toy_ary_sub"/-->
+    <node pkg="toybox02" name="node_name_pub" type="toy_ary_pub"/>
+    <node pkg="toybox02" name="node_name_sub" type="toy_ary_sub"/>
+    <!--node pkg="rqt_graph" name="name_rqt_graph" type="rqt_graph"/-->
+  </group>
+ 
+</launch>

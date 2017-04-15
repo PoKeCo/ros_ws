@@ -105,9 +105,10 @@ generate_messages(
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES toybox02
+  LIBRARIES toybox02
   CATKIN_DEPENDS message_runtime roscpp std_msgs
 #  DEPENDS system_lib
+  DEPENDS opencv
 )
 
 ###########
@@ -218,6 +219,12 @@ install(TARGETS toy_ary_pub
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
+
+
+install(DIRECTORY launch/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+   PATTERN ".svn" EXCLUDE
+)
 
 #############
 ## Testing ##

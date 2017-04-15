@@ -11,6 +11,7 @@ public:
   CHoge(){
     a = 10;
     b = 20;
+    c = 30;
     cout << "CHoge Constracter"<<endl;
   }
   ~CHoge(){
@@ -19,6 +20,7 @@ public:
 private:
   int a;
   int b;
+  int c;
 };
 
 int main( int argc, char ** argv ){

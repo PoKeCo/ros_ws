@@ -14,7 +14,7 @@ public:
     cout << "CHoge Constracter"<<endl;
   }
   ~CHoge(){
-    cout << "CHoge Destracter"<<endl;
+    cout << "CHoge Destructor"<<endl;
   }
 private:
   int a;

@@ -4,16 +4,17 @@
 #include <toybox02/szAryCarStat.h>
 #include <sstream>
 #include <iostream>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
 //#include <opencv2/core/core.hpp>
-//#include <opencv2/core/core.hpp>
-//#include <opencv2/highgui/highgui.hpp>
 
 using namespace std;
 
-//cv::Mat MonImg;
+cv::Mat MonImg;
 
 void carStatCallback(const toybox02::szAryCarStat::ConstPtr& msg){
   toybox02::szCarStat car;
+
   for( int i = 0; i < msg->cars.size() ; i ++ ){
     car = msg->cars.at( i );
     cout <<
@@ -22,6 +23,9 @@ void carStatCallback(const toybox02::szAryCarStat::ConstPtr& msg){
       "Y: " << car.posY << ", " <<
       "T: " << car.posT << endl;
   }
+  cv::imshow("monimg",MonImg);
+  cv::waitKey(0);
+
     
 }
 int main( int argc, char ** argv ){
@@ -30,7 +34,11 @@ int main( int argc, char ** argv ){
   ros::NodeHandle nh;
   ros::Subscriber sub = nh.subscribe("carAryStat",1000,carStatCallback);
   cout << "Node : toy_ary_sub" << endl;
-  //MonImg = cv::Mat(cv::Size(1024,512),CV_8UC3, cv::Scalar(0,0,0));
+  MonImg = cv::Mat(cv::Size(1024,512),CV_8UC3, cv::Scalar(0,0,255));
+  cv::namedWindow("monimg", CV_WINDOW_AUTOSIZE);
+  cv::imshow("monimg",MonImg);
+  cv::waitKey(0);
+
   ros::spin();
   return 0;
 }

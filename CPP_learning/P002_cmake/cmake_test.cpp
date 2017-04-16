@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <iostream>
 //#include <opencv2/core/core.hpp>
-//#include <opencv2/opencv.hpp>
-//#include <opencv2/highgui/highgui.hpp>
-#include <opencv/cv.h>
-#include <opencv/highgui.h>
+#include <opencv2/opencv.hpp>
+#include <opencv2/highgui/highgui.hpp>
+//#include <opencv/cv.h>
+//#include <opencv/highgui.h>
 
 typedef struct _dat{
   int x;
@@ -16,7 +16,7 @@ typedef dat* dat_ptr;
 using namespace std;
 using namespace cv;
 
-//Mat MonImg;
+Mat MonImg;
 
 void add( int &ans, int &x, int &y ){
   ans = x + y ;
@@ -32,14 +32,13 @@ void add( dat_ptr& d ){
 
 int main(int argc, char *argv[] ){
   int x, y, z ;
-  //MonImg = cv::Mat(cv::Size(1024,512), CV_8UC3, cv::Scalar(0,0,255) ) ; 
-  IplImage *pMonImg = cvCreateImage( cvSize( 1024, 512 ), CV_8UC3, 3 );
-  cvNamedWindow("Debug", CV_WINDOW_AUTOSIZE);
-  
-  //namedWindow("monimg", CV_WINDOW_AUTOSIZE);
+  MonImg = cv::Mat(cv::Size(1024,512), CV_8UC3, cv::Scalar(0,0,255) ) ; 
+  //IplImage *pMonImg = cvCreateImage( cvSize( 1024, 512 ), CV_8UC3, 3 );
+  //cvNamedWindow("Debug", CV_WINDOW_AUTOSIZE);
+  namedWindow("monimg", CV_WINDOW_AUTOSIZE);
   for( int i=0; i < 30; i ++  ){
-    //imshow("monimg", MonImg );
-    cvShowImage( "Debug", pMonImg );
+    imshow("monimg", MonImg );
+    //cvShowImage( "Debug", pMonImg );
     //waitKey(0);
     cvWaitKey(100);
   }

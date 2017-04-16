@@ -33,15 +33,15 @@ void add( dat_ptr& d ){
 int main(int argc, char *argv[] ){
   int x, y, z ;
   //MonImg = cv::Mat(cv::Size(1024,512), CV_8UC3, cv::Scalar(0,0,255) ) ; 
-  IplImage *pMonImg = cvCreateImage( cvSize( 1024, 512 ), IPL_DEPTH_8U, 2 );
+  IplImage *pMonImg = cvCreateImage( cvSize( 1024, 512 ), CV_8UC3, 3 );
   cvNamedWindow("Debug", CV_WINDOW_AUTOSIZE);
   
   //namedWindow("monimg", CV_WINDOW_AUTOSIZE);
-  for( int i=0; i < 10; i ++  ){
+  for( int i=0; i < 30; i ++  ){
     //imshow("monimg", MonImg );
     cvShowImage( "Debug", pMonImg );
     //waitKey(0);
-    cvWaitKey(1);
+    cvWaitKey(100);
   }
   
   dat d;

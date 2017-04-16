@@ -1,5 +1,10 @@
 #include <stdio.h>
 #include <iostream>
+//#include <opencv2/core/core.hpp>
+//#include <opencv2/opencv.hpp>
+//#include <opencv2/highgui/highgui.hpp>
+#include <opencv/cv.h>
+#include <opencv/highgui.h>
 
 typedef struct _dat{
   int x;
@@ -8,6 +13,10 @@ typedef struct _dat{
 } dat;
 
 typedef dat* dat_ptr;
+using namespace std;
+using namespace cv;
+
+//Mat MonImg;
 
 void add( int &ans, int &x, int &y ){
   ans = x + y ;
@@ -23,6 +32,18 @@ void add( dat_ptr& d ){
 
 int main(int argc, char *argv[] ){
   int x, y, z ;
+  //MonImg = cv::Mat(cv::Size(1024,512), CV_8UC3, cv::Scalar(0,0,255) ) ; 
+  IplImage *pMonImg = cvCreateImage( cvSize( 1024, 512 ), IPL_DEPTH_8U, 2 );
+  cvNamedWindow("Debug", CV_WINDOW_AUTOSIZE);
+  
+  //namedWindow("monimg", CV_WINDOW_AUTOSIZE);
+  for( int i=0; i < 10; i ++  ){
+    //imshow("monimg", MonImg );
+    cvShowImage( "Debug", pMonImg );
+    //waitKey(0);
+    cvWaitKey(1);
+  }
+  
   dat d;
   dat_ptr dp = (&d);
   d.x = x = 10;
@@ -35,5 +56,10 @@ int main(int argc, char *argv[] ){
   printf("%d = %d + %d \n", d.z, d.x, d.y );
   add( dp );
   printf("%d = %d + %d \n", dp->z, dp->x, dp->y );
+
+  cout << "Using cout" << endl;
+
+  cv::destroyWindow("monimg");
+
   return 0;
 }

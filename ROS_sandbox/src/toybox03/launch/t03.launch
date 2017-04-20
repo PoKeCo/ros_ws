@@ -1,0 +1,23 @@
+<launch>
+  <group ns="name_toybox03">
+    <!--node pkg="toy_loop_sub" name="node_name_sub" type="../../devel/bin/toy_loop_sub"/-->
+    <!--node pkg="toy_loop_sub" name="node_name_sub" type="../../devel/bin/toy_loop_sub"/-->
+    <!--node pkg="toybox03" name="p1" type="../../devel/bin/toy_loop_pub"/-->
+    <!--node pkg="toybox03" name="p2" type="../../devel/bin/toy_loop_sub"/-->
+    <!--node pkg="toybox03" name="p1" type="toy_loop_pub"/-->
+    <!--node pkg="toybox03" name="p2" type="toy_loop_sub"/-->
+    <!--node pkg="toy_loop_pub" name="node_name_pub" type="toy_loop_pub"/-->
+    <!--node pkg="toy_loop_sub" name="node_name_sub" type="toy_loop_sub"/-->
+    <!--node pkg="toybox03" name="name_toy_loop_pub" type="../../devel/bin/toy_loop_pub.exe"/-->
+    <!--node pkg="toybox03" name="name_toy_loop_sub" type="../../devel/bin/toy_loop_sub.exe"/-->
+    <!--node pkg="toybox03" name="name_toy_loop_pub" type="../../devel/bin/toy_loop_pub"/-->
+    <!--node pkg="toybox03" name="name_toy_loop_sub" type="../../devel/bin/toy_loop_sub"/-->
+    <!--<node pkg="toybox03" name="node_name_pub" type="toy_loop_pub"/>-->
+    <!--<node pkg="toybox03" name="node_name_sub" type="toy_loop_sub"/>-->
+    <!--node pkg="rqt_graph" name="name_rqt_graph" type="rqt_graph"/-->
+
+    <node pkg="toybox03" name="node1" type="toy_loop_pub"/>
+    <node pkg="toybox03" name="node2" type="toy_loop_sub"/>
+  </group>
+ 
+</launch>

@@ -1,0 +1,3 @@
+szCarStat[] cars
+
+

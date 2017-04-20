@@ -14,7 +14,7 @@ ros::Publisher  pub;
 void carStatCallback(const toybox03::szAryCarStat::ConstPtr& rx_msg){
   toybox03::szAryCarStat tx_msg;      
   toybox03::szCarStat car;
-
+  /*
   for( int i = 0; i < rx_msg->cars.size() ; i ++ ){
     car = rx_msg->cars.at( i );
     cout <<
@@ -22,6 +22,17 @@ void carStatCallback(const toybox03::szAryCarStat::ConstPtr& rx_msg){
       "X: " << car.posX << ", " <<
       "Y: " << car.posY << ", " <<
       "T: " << car.posT << endl;
+  }
+  */
+
+  for( std::vector<toybox03::szCarStat>::const_iterator icar = rx_msg->cars.begin(); icar != rx_msg->cars.end() ; icar ++ ){
+  //for( auto icar = rx_msg->cars.begin(); icar != rx_msg->cars.end() ; icar ++ ){ //NG
+  //for( auto icar : rx_msg->cars ){                                               //NG  
+    cout <<
+      "RX:" << ":" <<
+      "X: " << icar->posX << ", " <<
+      "Y: " << icar->posY << ", " <<
+      "T: " << icar->posT << endl;
   }
 
   ///////////////////////////////////

@@ -150,6 +150,13 @@ target_link_libraries(
   ${catkin_LIBRARIES} )
 add_dependencies(toy_loop_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+add_executable(toy_loop_sub_fast src/toy_loop_sub_fast.cpp)
+target_link_libraries(
+  toy_loop_sub_fast
+  ${OpenCV_LIBRARIES} 
+  ${catkin_LIBRARIES} )
+add_dependencies(toy_loop_sub_fast ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
 
 
 
@@ -196,6 +203,12 @@ add_dependencies(toy_loop_sub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPOR
 # )
 
 install(TARGETS toy_loop_sub
+   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
+   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS toy_loop_sub_fast
    ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
    RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}

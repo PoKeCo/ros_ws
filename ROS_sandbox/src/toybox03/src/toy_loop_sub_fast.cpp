@@ -56,14 +56,14 @@ void carStatCallback(const toybox03::szAryCarStat::ConstPtr& rx_msg){
 }
 int main( int argc, char ** argv ){
   
-  ros::init( argc, argv, "toy_loop_sub" );
+  ros::init( argc, argv, "toy_loop_sub_fast" );
   ros::NodeHandle nh;
   sub = nh.subscribe("rx",1000,carStatCallback);
   pub = nh.advertise<toybox03::szAryCarStat>("tx",1000);
 
-  cout << "Node : toy_ary_sub" << endl;
+  cout << "Node : toy_ary_sub_fast" << endl;
   
-  ros::Rate loop_wait(1);
+  ros::Rate loop_wait(10);
 
   toybox03::szAryCarStat msg;      
   toybox03::szCarStat    car;      

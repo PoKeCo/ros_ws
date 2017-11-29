@@ -2,6 +2,7 @@
 #include "std_msgs/String.h"
 //#include <toybox01/szCarStat.h>
 #include <geometry_msgs/PolygonStamped.h>
+#include <geometry_msgs/Polygon.h>
 #include <sstream>
 #include <iostream>
 #include <math.h>
@@ -13,6 +14,7 @@ int main( int argc, char ** argv ){
   ros::NodeHandle nh;
   ros::Publisher pub1 = nh.advertise<geometry_msgs::PolygonStamped>("pong1",1000);
   ros::Publisher pub2 = nh.advertise<geometry_msgs::PolygonStamped>("pong2",1000);
+  ros::Publisher pub3 = nh.advertise<geometry_msgs::Polygon>("pong3",1000);
   cout << "polychange_node: hoge" << endl;
   ros::Rate loop_rate(10);
 
@@ -21,6 +23,8 @@ int main( int argc, char ** argv ){
 
   geometry_msgs::PolygonStamped msg2;      
   geometry_msgs::Polygon  pg2;
+
+  geometry_msgs::Polygon  msg3;
 
   geometry_msgs::Point32 p;      
   /*
@@ -59,9 +63,19 @@ int main( int argc, char ** argv ){
       msg2.polygon.points.push_back(p);
     }
 
+
+    msg3.points.clear();
+    for( int i = 0; i < 10; i++ ){ 
+      p.x=i;
+      p.y=sin(2.0*M_PI/10.0*(double)(t+i));
+      p.z=cos(2.0*M_PI/10.0*(double)(t+i));
+      msg3.points.push_back(p);
+    }
+
     t++;
     pub1.publish( msg1 );
     pub2.publish( msg2 );
+    pub3.publish( msg3 );
     ros::spinOnce();
     loop_rate.sleep();    
   }

@@ -96,6 +96,20 @@ int main( int argc, char ** argv ){
       msg4.likelihood.push_back((double)r/10.0);
     }
 
+    //Decompose Example of msg4
+    for( std::vector<geometry_msgs::PolygonStamped>::const_iterator ips = msg4.polygons.begin();
+	 ips != msg4.polygons.end();
+	 ips ++ ){
+      
+      for( std::vector<geometry_msgs::Point32>::const_iterator ip = ips->polygon.points.begin();
+	   ip != ips->polygon.points.end();
+	   ip ++ ){
+	printf("%f, %f, %f\n", ip->x, ip->y, ip->z);
+	
+      }
+      printf("---\n");
+    }
+
     //Set msg5
     msg5.header=h;
     msg5.pose.position.x = sin(2.0*M_PI/10.0*(double)(t));
